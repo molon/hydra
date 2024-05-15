@@ -3,8 +3,14 @@
 
 package sql
 
-import "context"
+import (
+	"context"
+	"log"
+)
 
 func (p *Persister) Authenticate(ctx context.Context, name, secret string) error {
+	// TODO:
+	log.Printf("Authenticate with %v %v", name, secret)
+	return nil
 	return p.r.Kratos().Authenticate(ctx, name, secret)
 }

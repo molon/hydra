@@ -243,3 +243,8 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+// go get -u github.com/molon/fosite@master
+replace github.com/ory/fosite => github.com/molon/fosite v0.0.0-20240515161656-72f39746cd2e
+
+// replace github.com/ory/fosite => ../../molon/fosite

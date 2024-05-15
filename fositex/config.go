@@ -46,22 +46,25 @@ type Config struct {
 	*config.DefaultProvider
 }
 
-var defaultResponseModeHandler = fosite.NewDefaultResponseModeHandler()
-var defaultFactories = []Factory{
-	compose.OAuth2AuthorizeExplicitFactory,
-	compose.OAuth2AuthorizeImplicitFactory,
-	compose.OAuth2ClientCredentialsGrantFactory,
-	compose.OAuth2RefreshTokenGrantFactory,
-	compose.OpenIDConnectExplicitFactory,
-	compose.OpenIDConnectHybridFactory,
-	compose.OpenIDConnectImplicitFactory,
-	compose.OpenIDConnectRefreshFactory,
-	compose.OAuth2TokenRevocationFactory,
-	compose.OAuth2TokenIntrospectionFactory,
-	compose.OAuth2PKCEFactory,
-	compose.RFC7523AssertionGrantFactory,
-	compose.OIDCUserinfoVerifiableCredentialFactory,
-}
+var (
+	defaultResponseModeHandler = fosite.NewDefaultResponseModeHandler()
+	defaultFactories           = []Factory{
+		compose.OAuth2AuthorizeExplicitFactory,
+		compose.OAuth2AuthorizeImplicitFactory,
+		compose.OAuth2ClientCredentialsGrantFactory,
+		compose.OAuth2RefreshTokenGrantFactory,
+		compose.OAuth2ResourceOwnerPasswordCredentialsFactory,
+		compose.OpenIDConnectExplicitFactory,
+		compose.OpenIDConnectHybridFactory,
+		compose.OpenIDConnectImplicitFactory,
+		compose.OpenIDConnectRefreshFactory,
+		compose.OAuth2TokenRevocationFactory,
+		compose.OAuth2TokenIntrospectionFactory,
+		compose.OAuth2PKCEFactory,
+		compose.RFC7523AssertionGrantFactory,
+		compose.OIDCUserinfoVerifiableCredentialFactory,
+	}
+)
 
 func NewConfig(deps configDependencies) *Config {
 	c := &Config{
